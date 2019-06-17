@@ -13,6 +13,6 @@ HTML landing page(CMS sites) - FormData -> AJAX -> JSON (or FormData) -> PHP Scr
 
 Change links to YOU path site in HTML document!!!
 
-My support time only for money or good idea. )))
+My support time use only for money or good idea. )))
 Good idea it's only near connectome or universe.
 I can do everething - joker@tjo.biz
