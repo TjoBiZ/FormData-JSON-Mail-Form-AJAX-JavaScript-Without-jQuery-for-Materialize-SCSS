@@ -16,3 +16,5 @@ Change links to YOU path site in HTML document!!!
 My support time use only for money or good idea. )))
 Good idea it's only near connectome or universe.
 I can do everething - joker@tjo.biz
+
+Best regards.
