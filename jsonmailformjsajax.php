@@ -171,8 +171,6 @@ try {
 
 }
 
-
 echo json_encode($jsonresponse);
-
 
 ?>
