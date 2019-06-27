@@ -15,35 +15,11 @@ $arrayfromjsonmail["ip"] = $_SERVER['REMOTE_ADDR'];
 $arrayfromjsonmail['pageform'] = $_SERVER['HTTP_REFERER'];
 $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Тема письма
 
-require_once('phpmailer/PHPMailerAutoload.php');
-$mail = new PHPMailer;
-$mail->CharSet = 'utf-8';
-
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.zoho.com';  																							// Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'info@andamanriviera.com'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = 'Ge8eSFrQT3Vu'; // Ваш пароль от почты с которой будут отправляться письма
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
-
-$mail->setFrom('info@andamanriviera.com'); // от кого будет уходить письмо?
-$mail->addAddress('info@andamanriviera.com');     // Кому будет уходить письмо
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
-
 /** Начало кода по SMS оповещению **/
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-B7C659368557'); // Ваш уникальный программный ключ, который можно получить на главной странице
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXX'); // Ваш уникальный программный ключ, который можно получить на главной странице
 
 $data = new stdClass();
 /* Если текст на номера один */
@@ -141,12 +117,62 @@ $mail->Subject = $project_name; //Тема письма
 $mail->Body    = $message; //Тело письма
 $mail->AltBody = ''; //Тело письма для тех у кого нет HTML формата
 
-if($mail->send()) {
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require 'src/Exception.php';
+require 'src/PHPMailer.php';
+require 'src/SMTP.php';
+
+
+$mail = new PHPMailer(true);
+
+try {
+	//Server settings
+	//$mail->SMTPDebug = 2;                                       // Enable verbose debug output // С джейсом объектом будет прилетать дебаг не забывать закоментить на рабочей версии, чтобы не быо JS ошибки.
+	$mail->CharSet = 'UTF-8';
+	$mail->isSMTP();                                            // Set mailer to use SMTP
+	$mail->Host       = 'smtp.zoho.com';  // Specify main and backup SMTP servers
+	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+	$mail->Username   = 'joker@tjo.biz';                     // SMTP username
+	$mail->Password   = 'srtrstrstr';                               // SMTP password
+	$mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
+	$mail->Port       = 465;                                    // TCP port to connect to
+
+	//Recipients
+	$mail->setFrom('joker@tjo.biz', 'BOT-Forms');
+	$mail->addAddress('test@tjo.biz', 'BOT-Forms');     // Add a recipient
+//	$mail->addAddress('ellen@example.com');               // Name is optional
+//	$mail->addReplyTo('info@example.com', 'Information');
+//	$mail->addCC('cc@example.com');
+//	$mail->addBCC('bcc@example.com');
+
+//	// Attachments
+//	$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//	$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+	// Content
+	$mail->isHTML(true);                                  // Set email format to HTML
+	$mail->Subject = $project_name; //Тема письма
+	$mail->Body    = $message; //Тело письма
+	$mail->AltBody = ''; //Тело письма для тех у кого нет HTML формата
+
 	$jsonresponse = ['name' => $arrayfromjsonmail["name"],
 		'message' => $arrayfromjsonmail["message"]];
-} else {
+
+	$mail->send();
+
+} catch (Exception $e) {
+
 	$jsonresponse = [$arrayfromjsonmail["name"] => 'Возникла ошибка при отработке функции почты на каком-то из серверов! Попробуйте повторить через минуту или свяжитесь с нами другим способом.'];
+
 }
+
+
 echo json_encode($jsonresponse);
+
 
 ?>

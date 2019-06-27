@@ -1,9 +1,9 @@
 <?php
 
-$namecheck ='?domain=' . 'cosmoparfum.com.ua';
+$namecheck ='?domain=' . 'fvsport.com';
 //Server url
 $url = "https://www.webasyst.ru/my/api/developer/check/$namecheck";
-$apiKey = '^f:JWT.-O:xL9,Jno,bUhG_Jf8-85ui.'; // should match with Server key
+$apiKey = 'XXXXXXXXXXXXXXXX'; // should match with Server key
 $headers = array(
 	'X-API-Key: '.$apiKey
 );
@@ -22,7 +22,7 @@ echo $response;
 //PHP Server, index.php
 //
 //header("Content-Type:application/json");
-//$seceretKey = '32Xhsdf7asd';
+//$seceretKey = '32Xhsdarsf7asdcz';
 //$headers = apache_request_headers();
 //    if(isset($headers['Authorization'])){
 //			$api_key = $headers['Authorization'];
