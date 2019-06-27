@@ -19,7 +19,7 @@ $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXX'); // Ваш уникальный программный ключ, который можно получить на главной странице
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-B7C659368557'); // Ваш уникальный программный ключ, который можно получить на главной странице
 
 $data = new stdClass();
 /* Если текст на номера один */
@@ -137,14 +137,14 @@ try {
 	$mail->isSMTP();                                            // Set mailer to use SMTP
 	$mail->Host       = 'smtp.zoho.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-	$mail->Username   = 'joker@tjo.biz';                     // SMTP username
-	$mail->Password   = 'srtrstrstr';                               // SMTP password
+	$mail->Username   = 'info@andamanriviera.com';                     // SMTP username
+	$mail->Password   = 'Ge8eSFrQT3Vu';                               // SMTP password
 	$mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
 	$mail->Port       = 465;                                    // TCP port to connect to
 
 	//Recipients
-	$mail->setFrom('joker@tjo.biz', 'BOT-Forms');
-	$mail->addAddress('test@tjo.biz', 'BOT-Forms');     // Add a recipient
+	$mail->setFrom('info@andamanriviera.com', 'BOT-Forms');
+	$mail->addAddress('info@andamanriviera.com', 'BOT-Forms');     // Add a recipient
 //	$mail->addAddress('ellen@example.com');               // Name is optional
 //	$mail->addReplyTo('info@example.com', 'Information');
 //	$mail->addCC('cc@example.com');
@@ -171,6 +171,8 @@ try {
 
 }
 
+
 echo json_encode($jsonresponse);
+
 
 ?>
