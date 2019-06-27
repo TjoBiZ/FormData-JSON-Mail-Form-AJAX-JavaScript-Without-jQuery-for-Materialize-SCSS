@@ -14,13 +14,36 @@ $arrayfromjsonmail = json_decode(stripslashes(file_get_contents("php://input")),
 $arrayfromjsonmail["ip"] = $_SERVER['REMOTE_ADDR'];
 $arrayfromjsonmail['pageform'] = $_SERVER['HTTP_REFERER'];
 $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Тема письма
-$admin_email  = 'joker@tjo.biz'; //На какие ящики придет сообщение отправлено
+
+require_once('phpmailer/PHPMailerAutoload.php');
+$mail = new PHPMailer;
+$mail->CharSet = 'utf-8';
+
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.zoho.com';  																							// Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'info@andamanriviera.com'; // Ваш логин от почты с которой будут отправляться письма
+$mail->Password = 'Ge8eSFrQT3Vu'; // Ваш пароль от почты с которой будут отправляться письма
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
+
+$mail->setFrom('info@andamanriviera.com'); // от кого будет уходить письмо?
+$mail->addAddress('info@andamanriviera.com');     // Кому будет уходить письмо
+//$mail->addAddress('ellen@example.com');               // Name is optional
+//$mail->addReplyTo('info@example.com', 'Information');
+//$mail->addCC('cc@example.com');
+//$mail->addBCC('bcc@example.com');
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
 
 /** Начало кода по SMS оповещению **/
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXX'); // Ваш уникальный программный ключ, который можно получить на главной странице
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-B7C659368557'); // Ваш уникальный программный ключ, который можно получить на главной странице
 
 $data = new stdClass();
 /* Если текст на номера один */
@@ -112,15 +135,13 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 		}
 }
 $message = "<table style='width: 100%;'>$message</table>";
-function adopt($text) {
-	return '=?UTF-8?B?'.Base64_encode($text).'?=';
-}
-$headers = "MIME-Version: 1.0" . PHP_EOL .
-	"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-	'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
-	'Reply-To: '.$admin_email.'' . PHP_EOL;
 
-if (mail($admin_email, adopt($project_name), $message, $headers )) {
+
+$mail->Subject = $project_name; //Тема письма
+$mail->Body    = $message; //Тело письма
+$mail->AltBody = ''; //Тело письма для тех у кого нет HTML формата
+
+if($mail->send()) {
 	$jsonresponse = ['name' => $arrayfromjsonmail["name"],
 		'message' => $arrayfromjsonmail["message"]];
 } else {
