@@ -9,7 +9,7 @@ The object FormData without jQuery.
  Script - ES6 JavaScript.
 
  Structure:
-HTML landing page(CMS sites) - FormData -> AJAX -> JSON (or FormData) -> PHP Script(Can use node.js for JSON Array) -> server sent message to e-mail and SMS service -> response JSON (or FormData) to Landing Pages or sites
+HTML landing page(CMS sites) - FormData -> AJAX -> JSON (or FormData) -> PHP Script(Can use node.js for JSON Array) -> server sent message to e-mail SMTP SSL 486 (PHPMailer version 6.0.7) and SMS service -> response JSON (or FormData) to Landing Pages or sites
 
 Change links to YOU path site in HTML document!!!
 
