@@ -9,7 +9,7 @@ let cookieValueFirstVisit = document.cookie.replace(/(?:(?:^|.*;\s*)firstvisited
 			  document.cookie = "countpages=" + ++window.cookieValueCountPages + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
     }
 
-let materializesforms = ["FormJSON", "AnotherFormJSON"]; // Перечисляем индификаторы форм, которые нужно обработать.
+let materializesforms = ["FormJSON", "AnotherFormJSON", "MobileCallBack"]; // Перечисляем индификаторы форм, которые нужно обработать.
 
 materializesforms.forEach(function(pagesforms, materializesforms) {
 
@@ -21,6 +21,14 @@ materializesforms.forEach(function(pagesforms, materializesforms) {
         console.log('Действия пред отправкой JSON после нажатия'); // Тут можно задать действия сразу после нажатия кнопкп ПЕРЕД отправкаой JSON - "подождите сообщение отправляется."
         let dataf = new FormData(contactForm); // Передаем объект в функцию FormData
         //console.log(Array.from(dataf)); // - так можно посмотреть, что передлось
+        let mobileAnswer;
+        if (this.id == "MobileCallBack") {
+         mobileAnswer = document.getElementById("middleform")
+        } else {
+            mobileAnswer = contactForm
+        }
+        mobileAnswer.innerHTML = '<div class="waitingmessage center"> <div class="preloader-wrapper big active"> <div class="spinner-layer spinner-blue-only"> <div class="circle-clipper left"> <div class="circle"></div></div><div class="gap-patch"> <div class="circle"></div></div><div class="circle-clipper right"> <div class="circle"></div></div></div></div><div class="textwaiting">Please, waiting anytime, your message sending at this moment.</div></div>';
+
 
         let request = new XMLHttpRequest();
         let url = "jsonmailformjsajax.php";
@@ -31,7 +39,16 @@ materializesforms.forEach(function(pagesforms, materializesforms) {
                 let jsonData = JSON.parse(request.response);
                 console.log(jsonData);
                 console.log(request.response);
-                contactForm.innerHTML = "<h3>Спасибо за заявку, " + jsonData['name'] + '!</h3><br> Ваше сообщение: <em style="color:#516eee">' + jsonData['message'] + '</em> отправлено. Ждите ответа, скоро с Вами свяжуться';
+                let messageconcatination = '';
+                let usersName = '';
+                if (jsonData['name'] === null || jsonData['name'] === '') {
+                    usersName = '!';
+                } else {
+                    usersName = ", " + jsonData['name'] + "!";
+                }
+                if (jsonData['message'] === null || jsonData['message'] === '') {
+                } else { messageconcatination = ': <em style="color:#516eee">' + jsonData['message'] + '</em>' }
+                mobileAnswer.innerHTML = "<div class='center'><h3>Спасибо за Ваш интерес" + usersName + '</h3><br> Ваше сообщение' + messageconcatination + ' отправлено. <br><br> Мы уже увидели вашу заявку и в ближайшие 24 часа с Вами свяжется наш специалист. <br> Если у Вас есть срочный вопрос, Вы можете связаться с нами по телефонам:<br><a href="tel:+78008881234">8 800 888 12 34</a><br><a href="tel:+660800323660">+66 0800 323660</a><br><a href="tel:+660800399191">+66 0800399191</a></div>';
             }
         };
 
@@ -57,6 +74,7 @@ materializesforms.forEach(function(pagesforms, materializesforms) {
         dataf.append('language', navigator.language);
         dataf.append('firstvititedsite', cookieValueFirstVisit);
         dataf.append('time', current_datetime.toString());
+        if (typeof cookieValueCountPages === "undefined") { window.cookieValueCountPages = 1; }
         dataf.append('countpages', cookieValueCountPages);
 
         let arrayformdata = {};
@@ -67,4 +85,18 @@ materializesforms.forEach(function(pagesforms, materializesforms) {
     });
 
 
+});
+
+let opencallmobileback = document.getElementById("controlphonebtnopen");
+let callmobileclose = document.getElementById("controlphonebtnclose");
+let formcallback = document.getElementById("windowfixedform");
+ opencallmobileback.addEventListener('click', function () {
+     opencallmobileback.style.display = 'none';
+     callmobileclose.style.display = 'block';
+     formcallback.style.transform = 'scale(1)  translate(0px, 0px)';
+});
+callmobileclose.addEventListener('click', function () {
+    opencallmobileback.style.display = 'block';
+    callmobileclose.style.display = 'none';
+    formcallback.style.transform = 'scale(0) translate(100%, 100%)';
 });

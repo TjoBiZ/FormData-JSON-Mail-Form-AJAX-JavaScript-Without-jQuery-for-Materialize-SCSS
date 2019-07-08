@@ -19,7 +19,7 @@ $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-B7C659368557'); // Ваш уникальный программный ключ, который можно получить на главной странице
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Ваш уникальный программный ключ, который можно получить на главной странице
 
 $data = new stdClass();
 /* Если текст на номера один */
@@ -171,8 +171,6 @@ try {
 
 }
 
-
 echo json_encode($jsonresponse);
-
 
 ?>

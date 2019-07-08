@@ -15,6 +15,64 @@
   <link type="text/css" rel="stylesheet" href="https://andaman-riviera.loc/css/materialize.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="https://andaman-riviera.loc/css/style.css"  media="screen,projection"/>
 
+  <style>
+    @-webkit-keyframes rotate{0% {-webkit-transform: rotate(0deg);}4% {-webkit-transform: rotate(-45deg);}8% {-webkit-transform: rotate(0deg);}12% {-webkit-transform: rotate(-45deg);}16% {-webkit-transform: rotate(0deg);}20% {-webkit-transform: rotate(-45deg);}24% {-webkit-transform: rotate(0deg);}100% {-webkit-transform: rotate(0deg);}}
+    @-moz-keyframes rotate{0% {-moz-transform: rotate(0deg);}4% {-moz-transform: rotate(-45deg);}8% {-moz-transform: rotate(0deg);}12% {-moz-transform: rotate(-45deg);}16% {-moz-transform: rotate(0deg);}20% {-moz-transform: rotate(-45deg);}24% {-moz-transform: rotate(0deg);}100% {-moz-transform: rotate(0deg);}}
+    @keyframes rotate{0% {transform: rotate(0deg);}4% {transform: rotate(-45deg);}8% {transform: rotate(0deg);}12% {transform: rotate(-45deg);}16% {transform: rotate(0deg);}20% {transform: rotate(-45deg);}24% {transform: rotate(0deg);}100% {transform: rotate(0deg);}}
+    #MobileCallBack {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%; // пропорции блока определяются здесь
+    }
+    .wrapMobileCallBack {
+      background: rgba(255, 255, 255, 0.90);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-border-top-left-radius: 100%;
+      -moz-border-radius-topleft: 100%;
+      border-top-left-radius: 100%;
+      border-left: 10px solid #0361fa;
+      border-top: 1px solid #0361fa;
+    }
+    .windowfixed {
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      width: 50%;
+      max-width: 760px;
+      transform: scale(0) translate(100%, 100%);
+      transition: all 0.3s ease-in-out;
+    }
+    .windowfixed .btn {
+      font-size: 6px;
+      overflow: hidden;
+    }
+    .requercallback {
+      margin-top: 20px;
+      line-height: 10px;
+      display: none;
+      font-size: 8px;
+      text-transform: uppercase;
+    }
+    .phonebtn:hover > svg {
+      display: none;
+    }
+    .phonebtn:hover > .requercallback {
+      display: block;
+    }
+    #middleform {
+      width: 100%;
+      margin-top: 50%;
+    }
+    #controlphonebtnclose {
+      display: none;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -28,12 +86,12 @@
         </div>
         <div class="input-field col m6 s12">
           <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" name="tel" class="validate">
+          <input id="icon_telephone" type="tel" name="tel" class="validate" required="required" pattern="(\d|\+|\s|\(|\)|\.|-)*">
           <label for="icon_telephone">Телефон</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">email</i>
-          <input id="email" type="email" name="email" class="validate">
+          <input id="email" type="email" name="email" class="validate" required="required">
           <label for="email">Email</label>
           <!--span class="helper-text" data-error="wrong" data-success="right">Ваша e-mail</span-->
         </div>
@@ -129,12 +187,12 @@
         </div>
         <div class="input-field col m6 s12">
           <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone2" type="tel" name="tel" class="validate">
+          <input id="icon_telephone2" type="tel" name="tel" class="validate" required="required" pattern="(\d|\+|\s|\(|\)|\.|-)*">
           <label for="icon_telephone2">Телефон</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">email</i>
-          <input id="email2" type="email" name="email" class="validate">
+          <input id="email2" type="email" name="email" class="validate" required="required">
           <label for="email2">Email</label>
           <!--span class="helper-text" data-error="wrong" data-success="right">Ваша e-mail</span-->
         </div>
@@ -153,6 +211,43 @@
       </div>
     </form>
 
+
+    <div id="controlphonebtnopen" class="fixed-action-btn">
+      <a id="callbackbtn" class="btn-floating waves-effect waves-light btn-large pulse phonebtn"><div class="requercallback">Заказать звонок</div>
+        <svg enable-background="new 0 0 459 459" version="1.1" viewBox="0 0 459 459" xml:space="preserve" style="fill: white; width: 50%; margin: 25%; -webkit-animation: rotate 1.5s infinite ease-in-out;
+    -o-animation: rotate 1.5s infinite ease-in-out;
+    -moz-animation: rotate 1.5s infinite ease-in-out;
+    -ms-animation: rotate 1.5s infinite ease-in-out;
+    animation: rotate 1.5s infinite ease-in-out;">
+		<path d="m433.5 318.75c-30.6 0-61.2-5.1-91.8-15.3-7.65-2.55-17.851 0-25.5 5.1l-56.1 56.1c-71.399-35.7-130.05-96.9-168.3-168.3l56.1-56.1c7.65-7.65 10.2-17.85 5.1-25.5-7.65-28.05-12.75-58.65-12.75-89.25 0-15.3-10.2-25.5-25.5-25.5h-89.25c-15.3 0-25.5 10.2-25.5 25.5 0 239.7 193.8 433.5 433.5 433.5 15.3 0 25.5-10.2 25.5-25.5v-89.25c0-15.3-10.2-25.5-25.5-25.5zm-25.5-89.25h51c0-127.5-102-229.5-229.5-229.5v51c99.45 0 178.5 79.05 178.5 178.5zm-102 0h51c0-71.4-56.1-127.5-127.5-127.5v51c43.35 0 76.5 33.15 76.5 76.5z"/>
+</svg></a>
+    </div>
+
+    <div id="controlphonebtnclose" class="fixed-action-btn">
+      <a id="callbackbtnclose" class="btn-floating waves-effect waves-light btn-large phonebtn"><div class="requercallback">Закрыть окно</div>&#9587;</a>
+    </div>
+
+    <div id="windowfixedform" class="windowfixed">
+      <form id="MobileCallBack">
+      <div class="wrapMobileCallBack valign-wrapper"> <div id="middleform">
+        <input type="hidden" name="formName" value="Заказ обратного звонка">
+        <div class="row">
+          <div class="input-field col offset-s2 s8">
+            <input id="icon_telephonemobile" type="tel" name="tel" class="validate" required="required" pattern="(\d|\+|\s|\(|\)|\.|-)*">
+            <label for="icon_telephonemobile">Ваш номер телефона</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col offset-s2 s8">
+            <button type="submit" class="btn right">
+              Заказать обратный звонок
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+    </div>
 
 
     <table style='width: 100%;'>
@@ -270,7 +365,6 @@
             var elems = document.querySelectorAll('select');
             var instances = M.FormSelect.init(elems, {});
         });
-
     </script>
 <script type="text/javascript" src="scriptmailjson.js"></script>
 </body>
