@@ -1,9 +1,9 @@
 <?php
 
-$namecheck ='?domain=' . 'fvsport.com';
+$namecheck ='?domain=' . 'zip-components.ru';
 //Server url
 $url = "https://www.webasyst.ru/my/api/developer/check/$namecheck";
-$apiKey = 'XXXXXXXXXXXXXXXXX'; // should match with Server key
+$apiKey = '^f:JWT.-O:xL9,Jno,bUhG_Jf8-85ui.'; // should match with Server key
 $headers = array(
 	'X-API-Key: '.$apiKey
 );

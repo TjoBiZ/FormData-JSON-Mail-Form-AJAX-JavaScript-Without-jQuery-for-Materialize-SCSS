@@ -348,6 +348,60 @@
     </table>
 
 
+    <div>
+      <p>Подсоединяем скрипт - тестируем языки на странице</p>
+      <button class="translate" id="eng">
+        English
+      </button>
+      <button class="translate" id="rus">
+        Русский
+      </button>
+      <ul>
+        <li class="lang" key="home">
+          Home
+        </li>
+        <li class="lang" key="about">
+          About Us
+        </li>
+        <li class="lang" key="contact">
+          Contact Us
+        </li>
+      </ul>
+      <p>Напоминалка самому себе. Переводчик написан на jQuery, переписать на читсый JavaScript</p>
+    </div>
+
+    <div class="language">
+      <img src="https://beta.andamanriviera.com/build/img/svg/thailand.svg" id="th" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/united-states.svg" id="us" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/russia.svg" id="ru" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/china.svg" id="ch" style="width: 100px">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        var arrLang = {
+            'eng': {
+                'home': 'Home',
+                'about': 'About Us',
+                'contact': 'Contact Us'
+            },
+            'rus': {
+                'home': 'Главная',
+                'about': 'О компании',
+                'contact': 'Контакты'
+            }
+        };
+        $(function() {
+            $('.translate').click(function() {
+                var lang = $(this).attr('id');
+                $('.lang').each(function(index, element) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
+            });
+        });
+    </script>
+
+
 <script type="text/javascript" src="https://andaman-riviera.loc/js/bin/materialize.js"></script>
     <script>
 

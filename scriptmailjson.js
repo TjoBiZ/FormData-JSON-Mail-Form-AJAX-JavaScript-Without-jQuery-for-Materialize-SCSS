@@ -8,6 +8,11 @@ let cookieValueFirstVisit = document.cookie.replace(/(?:(?:^|.*;\s*)firstvisited
 			  window.cookieValueCountPages = document.cookie.replace(/(?:(?:^|.*;\s*)countpages\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 			  document.cookie = "countpages=" + ++window.cookieValueCountPages + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
     }
+    // Проверяем какой язык у клиента и установлен ли он в куках.
+let langcookie = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (!langcookie) {
+        document.cookie = "lang=" + navigator.language.match(/\w+/)[0].toLowerCase() + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
+    }
 
 let materializesforms = ["FormJSON", "AnotherFormJSON", "MobileCallBack"]; // Перечисляем индификаторы форм, которые нужно обработать.
 
