@@ -348,33 +348,33 @@
     </table>
 
 
-    <div>
-      <p>Подсоединяем скрипт - тестируем языки на странице</p>
-      <button class="translate" id="eng">
-        English
-      </button>
-      <button class="translate" id="rus">
-        Русский
-      </button>
-      <ul>
-        <li class="lang" key="home">
-          Home
-        </li>
-        <li class="lang" key="about">
-          About Us
-        </li>
-        <li class="lang" key="contact">
-          Contact Us
-        </li>
-      </ul>
-      <p>Напоминалка самому себе. Переводчик написан на jQuery, переписать на читсый JavaScript</p>
-    </div>
+<!--    <div>-->
+<!--      <p>Подсоединяем скрипт - тестируем языки на странице</p>-->
+<!--      <button class="translate" id="eng">-->
+<!--        English-->
+<!--      </button>-->
+<!--      <button class="translate" id="rus">-->
+<!--        Русский-->
+<!--      </button>-->
+<!--      <ul>-->
+<!--        <li class="lang" key="home">-->
+<!--          Home-->
+<!--        </li>-->
+<!--        <li class="lang" key="about">-->
+<!--          About Us-->
+<!--        </li>-->
+<!--        <li class="lang" key="contact">-->
+<!--          Contact Us-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <p>Напоминалка самому себе. Переводчик написан на jQuery, переписать на читсый JavaScript</p>-->
+<!--    </div>-->
 
-    <div class="language">
-      <img src="https://beta.andamanriviera.com/build/img/svg/thailand.svg" id="th" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/united-states.svg" id="us" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/russia.svg" id="ru" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/china.svg" id="ch" style="width: 100px">
+    <div id="language">
+      <img src="https://beta.andamanriviera.com/build/img/svg/thailand.svg" id="th" class="flag" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/united-states.svg" id="us" class="flag" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/russia.svg" id="ru" class="flag" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/china.svg" id="ch" class="flag" style="width: 100px">
     </div>
     <ul>
       <li class="lang" data-lan="home">
@@ -387,8 +387,18 @@
         Contact Us
       </li>
     </ul>
+<script>
+    document.querySelector('#language').onclick = function (event) {
+        document.querySelectorAll('.flag').forEach(function(flag) {
+            if (flag.id == event.target.id) {
+              return console.log(flag.id);
+            }
+        });
+    }
+</script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
     <script>
         var arrLang = {
             'eng': {
