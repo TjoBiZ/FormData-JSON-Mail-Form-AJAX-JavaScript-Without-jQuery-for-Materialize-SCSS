@@ -391,6 +391,7 @@
     document.querySelector('#language').onclick = function (event) {
         document.querySelectorAll('.flag').forEach(function(flag) {
             if (flag.id == event.target.id) {
+                document.cookie = "lang=" + flag.id + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
               return console.log(flag.id);
             }
         });
@@ -401,12 +402,12 @@
 <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
     <script>
         var arrLang = {
-            'eng': {
+            'us': {
                 'home': 'Home',
                 'about': 'About Us',
                 'contact': 'Contact Us'
             },
-            'rus': {
+            'ru': {
                 'home': 'Главная',
                 'about': 'О компании',
                 'contact': 'Контакты'

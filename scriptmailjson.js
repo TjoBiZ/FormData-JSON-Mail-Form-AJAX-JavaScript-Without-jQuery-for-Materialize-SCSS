@@ -105,3 +105,10 @@ callmobileclose.addEventListener('click', function () {
     callmobileclose.style.display = 'none';
     formcallback.style.transform = 'scale(0) translate(100%, 100%)';
 });
+
+function changelanguage( fl ) {
+    document.querySelectorAll('.lang').forEach(function(element) {
+        console.log(element.dataset.lan);
+        console.log(arrLang.ru[element.dataset.lan]);
+    });
+}
