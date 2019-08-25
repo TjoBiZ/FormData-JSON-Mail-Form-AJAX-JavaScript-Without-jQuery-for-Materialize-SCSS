@@ -348,33 +348,11 @@
     </table>
 
 
-<!--    <div>-->
-<!--      <p>Подсоединяем скрипт - тестируем языки на странице</p>-->
-<!--      <button class="translate" id="eng">-->
-<!--        English-->
-<!--      </button>-->
-<!--      <button class="translate" id="rus">-->
-<!--        Русский-->
-<!--      </button>-->
-<!--      <ul>-->
-<!--        <li class="lang" key="home">-->
-<!--          Home-->
-<!--        </li>-->
-<!--        <li class="lang" key="about">-->
-<!--          About Us-->
-<!--        </li>-->
-<!--        <li class="lang" key="contact">-->
-<!--          Contact Us-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--      <p>Напоминалка самому себе. Переводчик написан на jQuery, переписать на читсый JavaScript</p>-->
-<!--    </div>-->
-
     <div id="language">
-      <img src="https://beta.andamanriviera.com/build/img/svg/thailand.svg" id="th" class="flag" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/united-states.svg" id="us" class="flag" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/russia.svg" id="ru" class="flag" style="width: 100px">
-      <img src="https://beta.andamanriviera.com/build/img/svg/china.svg" id="ch" class="flag" style="width: 100px">
+      <img src="https://beta.andamanriviera.com/build/img/svg/thailand.svg" id="th" class="flag">
+      <img src="https://beta.andamanriviera.com/build/img/svg/united-states.svg" id="us" class="flag">
+      <img src="https://beta.andamanriviera.com/build/img/svg/russia.svg" id="ru" class="flag">
+      <img src="https://beta.andamanriviera.com/build/img/svg/china.svg" id="ch" class="flag">
     </div>
     <ul>
       <li class="lang" data-lan="home">
@@ -387,20 +365,22 @@
         Contact Us
       </li>
     </ul>
+
+
 <script>
+// event click flag and cookie
     document.querySelector('#language').onclick = function (event) {
         document.querySelectorAll('.flag').forEach(function(flag) {
             if (flag.id == event.target.id) {
                 document.cookie = "lang=" + flag.id + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
-              return console.log(flag.id);
+                return changelanguage();
             }
         });
     }
 </script>
 
-
-<!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
     <script>
+      //content page All language array obj
         var arrLang = {
             'us': {
                 'home': 'Home',
@@ -411,16 +391,18 @@
                 'home': 'Главная',
                 'about': 'О компании',
                 'contact': 'Контакты'
+            },
+            'ch': {
+                'home': '家',
+                'about': '關於我們',
+                'contact': '聯繫我們'
+            },
+            'th': {
+                'home': 'บ้าน',
+                'about': 'เกี่ยวกับเรา',
+                'contact': 'ติดต่อเรา'
             }
         };
-        $(function() {
-            $('.translate').click(function() {
-                var lang = $(this).attr('id');
-                $('.lang').each(function(index, element) {
-                    $(this).text(arrLang[lang][$(this).attr('key')]);
-                });
-            });
-        });
     </script>
 
 
@@ -443,5 +425,10 @@
         });
     </script>
 <script type="text/javascript" src="scriptmailjson.js"></script>
+
+    <script> //чтобы вывелось на том языке на котором прошлый раз выбрали инфа в куках. В ФУТОРО, после html контента!!! и последовательно "ЗА", где прописана сама функция.
+    changelanguage();
+    </script>
+
 </body>
 </html>

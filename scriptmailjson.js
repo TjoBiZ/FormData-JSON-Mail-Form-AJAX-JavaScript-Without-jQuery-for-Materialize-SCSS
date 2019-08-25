@@ -106,11 +106,12 @@ callmobileclose.addEventListener('click', function () {
     formcallback.style.transform = 'scale(0) translate(100%, 100%)';
 });
 
-let fl = 'ru';
-function changelanguage( fl ) {
+
+function changelanguage() {
+    let fl =  document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     document.querySelectorAll('.lang').forEach(function(element) {
-        console.log(element.dataset.lan);
-        element.innerHTML = arrLang.ru[element.dataset.lan];
-        console.log(arrLang.ru[element.dataset.lan]);
+ //       console.log(element.dataset.lan);
+        element.innerHTML = arrLang[fl][element.dataset.lan];
+ //       console.log(arrLang[fl][element.dataset.lan]);
     });
 }
