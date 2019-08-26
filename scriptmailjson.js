@@ -110,8 +110,8 @@ callmobileclose.addEventListener('click', function () {
 function changelanguage() {
     let fl =  document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     document.querySelectorAll('.lang').forEach(function(element) {
- //       console.log(element.dataset.lan);
         element.innerHTML = arrLang[fl][element.dataset.lan];
- //       console.log(arrLang[fl][element.dataset.lan]);
+        //       console.log(arrLang[fl][element.dataset.lan]);
+        //       console.log(element.dataset.lan);
     });
 }
