@@ -1,5 +1,5 @@
 <?php
-//If you need you can add to server "crone" this file one hour. It change currency course in object for javascript on main html page.
+//If you need you can add to server "cron" this file one hour. It change currency course in object for javascript on main html page.
 function currencyTHB() {
 	$json_daily_file = __DIR__.'/thb.json';
 	if (!is_file($json_daily_file) || filemtime($json_daily_file) < time() - 3600) {
