@@ -15,8 +15,8 @@ $data = currencyTHB();
 
 $f_name = __DIR__ . '/text.html'; //html file where you can write currency course.
 $contenthtmlpage = file_get_contents($f_name);
-$pattern = '/^(\s)*var.*?\/\/currencythbphpcron$/m'; //You need have this row on your html file in <script> tag for work! // "	var currencythbphpcron = {thbrub:2.16939786268, thbusd: 0.0326872735523, thbcny: 0.234163831884}; //currencythbphpcron"
-$replacement = '	var currencythbphpcron = {thbrub:'. $data->rub->rate .', thbusd: ' . $usd = $data->usd->rate . ', thbcny: ' . $data->cny->rate . '}; //currencythbphpcron';
+$pattern = '/\s*var\scurrencythbphpcron.*?}/m'; //You need have this row on your html file in <script> tag for work! // "var currencythbphpcron = {thbrub:2.16939786268, thbusd: 0.0326872735523, thbcny: 0.234163831884}; //currencythbphpcron"
+$replacement = 'var currencythbphpcron={thbrub:' . $data->rub->rate . ',thbusd:' . $usd = $data->usd->rate . ',thbcny:' . $data->cny->rate . '}';
  if (preg_replace($pattern, $replacement, $contenthtmlpage)) {
 	 $contenthtmlpage = preg_replace($pattern, $replacement, $contenthtmlpage);
 	 file_put_contents($f_name, $contenthtmlpage);
