@@ -131,11 +131,21 @@ $client = new Http\Adapter\Guzzle6\Client();
 $apiClient = new \TgBotApi\BotApiBase\ApiClient($requestFactory, $streamFactory, $client);
 $bot = new \TgBotApi\BotApiBase\BotApi($botKey, $apiClient, new \TgBotApi\BotApiBase\BotApiNormalizer());
 
-$userId = '-322288973';
-$message2 = 'You have message in your e-mail from site.
-Check it. ';
+$userId = '458901566'; //458901566 (bot ID), group chat ID (-322288973)
+$dataParametrs = array( //Add another API telegram option for message. We use this mode, pass HTML in the parse_mode field when using sendMessage.
+	"parseMode" => "HTML",
+);
 
-$bot->send(\TgBotApi\BotApiBase\Method\SendMessageMethod::create($userId, $message2));
+$message2 = 'These are examples HTMLs tags in Telegram(Check it in PC and mobile view):
+First line:			<b>bold</b>, <strong>bold</strong>
+Second line:		<i>italic</i>, <em>italic</em>
+Third line:			<a href="http://www.example.com/">inline URL</a>
+Fourth line:		<a href="tg://user?id=123456789">inline mention of a user</a>
+Fifth line:			<code>inline fixed-width code</code>
+Sixth line:			<pre>pre-formatted fixed-width code block</pre>
+';
+
+$bot->send(\TgBotApi\BotApiBase\Method\SendMessageMethod::create($userId, $message2, $dataParametrs));
 
 //SendMessage End Telegram bot
 
