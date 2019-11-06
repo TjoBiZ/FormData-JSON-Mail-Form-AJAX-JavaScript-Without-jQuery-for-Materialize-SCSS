@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c402cc5-e0da-4a11-916b-527629610f6b" name="Default" comment="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!">
-      <change afterPath="$PROJECT_DIR$/src/bot-api-base/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot-api-base/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jsonmailformjsajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/jsonmailformjsajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/AnswerCallbackQuery.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/AnswerPreCheckoutQuery.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Bot.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/CallbackQuery.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Chat.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/ChatPhoto.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Contact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/DeleteMessage.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Document.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/EditMessageText.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/File.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/FileId.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/FileUrl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/GetFile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/InlineKeyboardButton.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/InlineKeyboardMarkup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/InputFile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/KeyboardButton.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/LabeledPrice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Message.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/OrderInfo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/PreCheckoutQuery.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/ReplyKeyboardMarkup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/ReplyKeyboardRemove.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/ReplyMarkup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SendDocument.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SendInvoice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SendMessage.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SendPhoto.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SetWebhook.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/ShippingAddress.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/SuccessfulPayment.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/Update.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram-bot-php-master/src/User.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +137,7 @@
       <workItem from="1572967408557" duration="130000" />
       <workItem from="1572967686413" duration="2767000" />
       <workItem from="1572971565663" duration="3805000" />
-      <workItem from="1573025084250" duration="9431000" />
+      <workItem from="1573025084250" duration="16595000" />
     </task>
     <task id="LOCAL-00001" summary="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!">
       <created>1560756078520</created>
@@ -203,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573034008617</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!">
+      <created>1573048807578</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573048807578</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,9 +194,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!" />
     <MESSAGE value="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!&#10;&#10;Add Telegram mobile security messenger." />
-    <option name="LAST_COMMIT_MESSAGE" value="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!&#10;&#10;Add Telegram mobile security messenger." />
+    <MESSAGE value="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -237,8 +208,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/jsonmailformjsajax.php</url>
-          <line>138</line>
-          <option name="timeStamp" value="18" />
+          <line>140</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/jsonmailformjsajax.php</url>
+          <line>165</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/jsonmailformjsajax.php</url>
+          <line>112</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -100,7 +100,7 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 
 		resultdata($translateformnamecolumn, $arrayfromjsonmail, $resulttomail);
 
-	foreach ( $resulttomail as $key => $value ) {
+	foreach ( $resulttomail as $key => $value ) {		//prepare e-mail table message
 		if ( $value != "" && $key != "formName" ) {
 			$message .= "
 			" . ( ($c = !$c) ? '<tr>': '<tr style="background-color: #d4fef2;">') . "
@@ -111,6 +111,24 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 		}
 }
 $message = "<table style='width: 100%;'>$message</table>";
+
+$ipfortelegram = "https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['REMOTE_ADDR']; //prepare message for telegram
+
+foreach ( $arrayfromjsonmail as $key => $value ) {
+	if ( $value != "" && $value !== "false") {
+		if ($key == "ip"){
+			$messagetelegrammaterialize .= <<<HERE
+<strong>$key</strong>:		<em>$ipfortelegram</em>
+
+HERE;
+		} elseif ($key) {
+		$messagetelegrammaterialize .= <<<HERE
+<strong>$key</strong>:		<em>$value</em>
+
+HERE;
+		}
+	}
+}
 
 //SendMessage Telegram bot minimum PHP version 7.2 + Composer! If you need another version ask develop
 //Instruction for privet group chat in Telegram - We use this GitHub composer - https://github.com/tg-bot-api/bot-api-base another language and bots there are - https://core.telegram.org/bots/samples
@@ -131,30 +149,28 @@ $client = new Http\Adapter\Guzzle6\Client();
 $apiClient = new \TgBotApi\BotApiBase\ApiClient($requestFactory, $streamFactory, $client);
 $bot = new \TgBotApi\BotApiBase\BotApi($botKey, $apiClient, new \TgBotApi\BotApiBase\BotApiNormalizer());
 
-$userId = '458901566'; //458901566 (bot ID), group chat ID (-322288973)
-$dataParametrs = array( //Add another API telegram option for message. We use this mode, pass HTML in the parse_mode field when using sendMessage.
+$userId = '-322288973'; //458901566 (bot ID), group chat ID (-322288973)
+$dataParametrs = array( //Add another API telegram option for message into this array. We use this mode, pass HTML in the parse_mode field when using sendMessage.
 	"parseMode" => "HTML",
 );
 
-$message2 = 'These are examples HTMLs tags in Telegram(Check it in PC and mobile view):
-First line:			<b>bold</b>, <strong>bold</strong>
-Second line:		<i>italic</i>, <em>italic</em>
-Third line:			<a href="http://www.example.com/">inline URL</a>
-Fourth line:		<a href="tg://user?id=123456789">inline mention of a user</a>
-Fifth line:			<code>inline fixed-width code</code>
-Sixth line:			<pre>pre-formatted fixed-width code block</pre>
-';
+//$message2 = 'These are examples HTMLs(caniuse) tags in Telegram(Check it in PC and mobile view):
+//First line:			<b>bold</b>, <strong>bold</strong>
+//Second line:		<i>italic</i>, <em>italic</em>
+//Third line:			<a href="http://www.example.com/">inline URL</a>
+//Fourth line:		<a href="tg://user?id=123456789">inline mention of a user</a>
+//Fifth line:			<code>inline fixed-width code</code>
+//Sixth line:			<pre>pre-formatted fixed-width code block</pre>
+//';
 
-$bot->send(\TgBotApi\BotApiBase\Method\SendMessageMethod::create($userId, $message2, $dataParametrs));
+$bot->send(\TgBotApi\BotApiBase\Method\SendMessageMethod::create($userId, $messagetelegrammaterialize, $dataParametrs));
 
-//SendMessage End Telegram bot
-
-
-$mail->Subject = $project_name; //Тема письма
-$mail->Body    = $message; //Тело письма
-$mail->AltBody = ''; //Тело письма для тех у кого нет HTML формата
+//End Telegram bot method SendMessage
 
 
+$mail->Subject = $project_name; //Title letter
+$mail->Body    = $message; //Body letter
+$mail->AltBody = ''; //if you didn't use HTML format
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -163,7 +179,6 @@ use PHPMailer\PHPMailer\SMTP;
 require 'src/Exception.php';
 require 'src/PHPMailer.php';
 require 'src/SMTP.php';
-
 
 $mail = new PHPMailer(true);
 
