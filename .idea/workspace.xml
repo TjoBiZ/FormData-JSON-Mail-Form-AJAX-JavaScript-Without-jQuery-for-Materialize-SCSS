@@ -137,7 +137,7 @@
       <workItem from="1572967408557" duration="130000" />
       <workItem from="1572967686413" duration="2767000" />
       <workItem from="1572971565663" duration="3805000" />
-      <workItem from="1573025084250" duration="16595000" />
+      <workItem from="1573025084250" duration="17132000" />
     </task>
     <task id="LOCAL-00001" summary="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!">
       <created>1560756078520</created>
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573048807578</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="First version Materialize Form HTML5&#10;The object FormData without jQuery&#10;ES6 - JavaScript&#10;&#10; Structure:&#10;HTML landing page - FormData -&gt; AJAX -&gt; JSON (or FormData) -&gt; PHP Script(Can use node.js for JSON Array) -&gt; sent message to mail, SMS service -&gt; response JSON (or FormData) to Landing Page or sites&#10;&#10;Change links to YOU Site in HTML document!!!">
+      <created>1573057938763</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1573057938763</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

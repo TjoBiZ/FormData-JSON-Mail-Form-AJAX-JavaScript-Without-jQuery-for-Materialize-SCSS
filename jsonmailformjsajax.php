@@ -15,7 +15,7 @@ $arrayfromjsonmail["ip"] = $_SERVER['REMOTE_ADDR'];
 $arrayfromjsonmail['pageform'] = $_SERVER['HTTP_REFERER'];
 $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Тема письма
 
-/** Начало кода по SMS оповещению **/
+/** Start code for SMS mobile message **/
 
 require_once 'sms.ru.php';
 
@@ -46,7 +46,7 @@ if ($request->status == "OK") { // Запрос выполнен успешно
 		}
 	}
 }
-/** Сообщение на телефон тут код заканчивается**/
+/** End Mobile message code **/
 
 //Script Foreach
 $c = true;
@@ -62,7 +62,7 @@ $c = true;
 
 	recurse_array_HTML_safe($arrayfromjsonmail);
 
-$arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['REMOTE_ADDR'] . "\" target=\"_blank\">Посмотреть где находится IP " . $_SERVER['REMOTE_ADDR'] . "</a>"; // Делаем ссылку, чтобы можно было посмотреть местоположение по IP адресу.
+$arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['REMOTE_ADDR'] . "\" target=\"_blank\">Посмотреть где находится IP " . $_SERVER['REMOTE_ADDR'] . "</a>"; // This is link for check IP address on earth map.
 
 		$translateformnamecolumn = [
 			'formName' => 'Название формы',
