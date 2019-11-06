@@ -112,6 +112,33 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 }
 $message = "<table style='width: 100%;'>$message</table>";
 
+//SendMessage Telegram bot minimum PHP version 7.2 + Composer! If you need another version ask develop
+//Instruction for privet group chat in Telegram - We use this GitHub composer - https://github.com/tg-bot-api/bot-api-base another language and bots there are - https://core.telegram.org/bots/samples
+// Official Bots API - https://core.telegram.org/bots/api
+//First add bot to group chat. Then click "START" in window with bot and write anything to bot, then send command to group chat /join @name_bot
+//Second sent message to your bot then open API link ->
+//You can find UserId https://api.telegram.org/bot<token>/<method>  example
+// https://api.telegram.org/bot1066346336:AAF6lPgov2AuY5eaKBDbsi3ivYm7x1n01TA/getUpdates
+// We need choose private number (second "id") with "-XXXXXX" number then message will be sent to group chat not to your bot.
+require_once  __DIR__ . '/src/bot-api-base/vendor/autoload.php';
+
+$botKey = '1066346336:AAF6lPgov2AuY5eaKBDbsi3ivYm7x1n01TA';
+
+$requestFactory = new Http\Factory\Guzzle\RequestFactory();
+$streamFactory = new Http\Factory\Guzzle\StreamFactory();
+$client = new Http\Adapter\Guzzle6\Client();
+
+$apiClient = new \TgBotApi\BotApiBase\ApiClient($requestFactory, $streamFactory, $client);
+$bot = new \TgBotApi\BotApiBase\BotApi($botKey, $apiClient, new \TgBotApi\BotApiBase\BotApiNormalizer());
+
+$userId = '-322288973';
+$message2 = 'You have message in your e-mail from site.
+Check it. ';
+
+$bot->send(\TgBotApi\BotApiBase\Method\SendMessageMethod::create($userId, $message2));
+
+//SendMessage End Telegram bot
+
 
 $mail->Subject = $project_name; //Тема письма
 $mail->Body    = $message; //Тело письма
@@ -135,16 +162,28 @@ try {
 	//$mail->SMTPDebug = 2;                                       // Enable verbose debug output // С джейсом объектом будет прилетать дебаг не забывать закоментить на рабочей версии, чтобы не быо JS ошибки.
 	$mail->CharSet = 'UTF-8';
 	$mail->isSMTP();                                            // Set mailer to use SMTP
-	$mail->Host       = 'smtp.zoho.com';  // Specify main and backup SMTP servers
-	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-	$mail->Username   = 'info@andamanriviera.com';                     // SMTP username
-	$mail->Password   = 'Ge8eSFrQT3Vu';                               // SMTP password
-	$mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
-	$mail->Port       = 465;                                    // TCP port to connect to
+//	$mail->Host       = 'smtp.zoho.com';  // Specify main and backup SMTP servers
+//	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+//	$mail->Username   = 'info@andamanriviera.com';                     // SMTP username
+//	$mail->Password   = 'Ge8eSFrQT3Vu';                               // SMTP password
+//	$mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
+//	$mail->Port       = 465;                                    // TCP port to connect to
+//	$mail->setFrom('info@andamanriviera.com', 'BOT-Forms');
+//	$mail->addAddress('info@andamanriviera.com', 'BOT-Forms');
 
+                 $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                 $mail->Username   = 'lacktic@gmail.com';                     // SMTP username
+                 $mail->Password   = 'Generati0n';                               // SMTP password/
+                 $mail->SMTPSecure = 'ssl';                                  // Enable TLS 587 encryption(or without encrypt), `ssl` 465 also accepted
+                 $mail->Port       = 465;                                    // TCP port to connect too 465 ssl
 	//Recipients
-	$mail->setFrom('info@andamanriviera.com', 'BOT-Forms');
-	$mail->addAddress('info@andamanriviera.com', 'BOT-Forms');     // Add a recipient
+                 $mail->setFrom('lacktic@gmail.com', 'BOT-Test mail');
+                 $mail->addAddress('lacktic@gmail.com', 'BOT-Test mail');     // Add a recipient  // Add a recipient
+//	$mail->addAddress('ellen@example.com');               // Name is optional
+//	$mail->addReplyTo('info@example.com', 'Information');
+//	$mail->addCC('cc@example.com');
+//	$mail->addBCC('bcc@example.com');
 //	$mail->addAddress('ellen@example.com');               // Name is optional
 //	$mail->addReplyTo('info@example.com', 'Information');
 //	$mail->addCC('cc@example.com');
