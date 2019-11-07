@@ -19,12 +19,12 @@ $project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Ваш уникальный программный ключ, который можно получить на главной странице
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Your key API passwd, you can take in your profile in sms.ru
 
 $data = new stdClass();
 /* Если текст на номера один */
-$data->to = '66800323660,66800343991'; // Номера для отправки сообщения (От 1 до 100 шт за раз). Вторым указан городской номер, по которому будет возвращена ошибка
-$data->text = 'Коммерческая недвижимость ' . $arrayfromjsonmail['tel']; // Текст сообщения
+$data->to = '66800323660,66800343991'; // Phones for get SMS from forms (max 100 numbers). Вторым указан городской номер, по которому будет возвращена ошибка
+$data->text = 'Коммерческая недвижимость ' . $arrayfromjsonmail['tel']; // SMS Message to mobile
 /* Если текст разный. В этом случае $data->to и $data->text обрабатываться не будут и их можно убрать из кода */
 //$data->multi = array( // От 1 до 100 штук за раз
 //	"79533606633" => "Hello World", // 1 номер
