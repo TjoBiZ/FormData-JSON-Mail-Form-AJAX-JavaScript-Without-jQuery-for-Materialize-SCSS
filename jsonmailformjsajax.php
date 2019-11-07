@@ -1,4 +1,9 @@
 <?php
+// This is script MaterializeCSS use 3 PHP products. You must integration it if you need those functional
+// PHPMailer do email message from forms - https://github.com/PHPMailer/PHPMailer
+// SMS.RU do mobile sms message from forms too you phone number - https://sms.ru (You need this account)
+// Telegram privet room (High security channel) for message to your mobile and employers mobiles your company. - https://github.com/tg-bot-api/bot-api-base
+// And my scripts joker@tjo.biz. Support only of money.
 // Handling data in JSON format on the server-side using PHP
 header("Content-Type: application/json");
 // build a PHP variable from JSON sent using POST method
