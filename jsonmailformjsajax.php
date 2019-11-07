@@ -51,7 +51,7 @@ if ($request->status == "OK") { // Запрос выполнен успешно
 //Script Foreach
 $c = true;
 
-//guard for xss
+//guard for xss (firewall for html tags and js scripts injection)
 	function recurse_array_HTML_safe(&$arr) {
 		foreach ($arr as $key => $val)
 			if (is_array($val))
@@ -88,7 +88,7 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 //			yandexwebvisor => 'Ссылка на Яндекс Вебвизор '
 		];
 
-		$resulttomail = array(); // Делаем результирующий массив на отправку на почту
+		$resulttomail = array(); // It creat result array for sent too email
 
 		function resultdata ($translateformnamecolumn, $arrayfromjsonmail, &$resulttomail) {
 			foreach ($arrayfromjsonmail as $key => $value) {
@@ -220,9 +220,9 @@ try {
 
 	// Content
 	$mail->isHTML(true);                                  // Set email format to HTML
-	$mail->Subject = $project_name; //Тема письма
-	$mail->Body    = $message; //Тело письма
-	$mail->AltBody = ''; //Тело письма для тех у кого нет HTML формата
+	$mail->Subject = $project_name; // Subject(Title) email
+	$mail->Body    = $message; //Body message to email
+	$mail->AltBody = ''; // This is body message for email without HTML format
 
 	$jsonresponse = ['name' => $arrayfromjsonmail["name"],
 		'message' => $arrayfromjsonmail["message"]];
