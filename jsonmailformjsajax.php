@@ -3,7 +3,7 @@
 // 1) PHPMailer do email message from forms - https://github.com/PHPMailer/PHPMailer
 // 2) SMS.RU do mobile sms message from forms too you phone number - https://sms.ru (You need this account)
 // 3) Telegram darknet rooms (High security channel) for message to your mobile and staf mobiles your company. - https://github.com/tg-bot-api/bot-api-base
-// And this is my backend PHP script. My e-mail is joker@tjo.biz. Support "No money, no honey".
+// And this is my backend PHP script. My e-mail is joker@tjo.biz. Support frontend webpack optimization + backend - "No money, no honey".
 
 // Handling data in JSON format on the server-side using PHP
 
