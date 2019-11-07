@@ -3,7 +3,7 @@
 header("Content-Type: application/json");
 // build a PHP variable from JSON sent using POST method
 $arrayfromjsonmail = json_decode(stripslashes(file_get_contents("php://input")), true);
-//Если без парамерта true декодируем json, то получаем объект, а не массив, тогда обращаемся к свойствам соответственным способом
+//if without parameter "true", then get object from json, with "true" get array. You can choose object or array, if you want. It's different data variation then.
 //To access the object in your PHP file, use
 //$v->name;
 //$v->email;
@@ -13,16 +13,16 @@ $arrayfromjsonmail = json_decode(stripslashes(file_get_contents("php://input")),
 
 $arrayfromjsonmail["ip"] = $_SERVER['REMOTE_ADDR'];
 $arrayfromjsonmail['pageform'] = $_SERVER['HTTP_REFERER'];
-$project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Тема письма
+$project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Title later
 
 /** Start code for SMS mobile message **/
 
 require_once 'sms.ru.php';
 
-$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Your key API passwd, you can take in your profile in sms.ru
+$smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Your key account API, you can take in your profile in sms.ru
 
 $data = new stdClass();
-/* Если текст на номера один */
+/* If one variation text for different phone numbers then -> */
 $data->to = '66800323660,66800343991'; // Phones for get SMS from forms (max 100 numbers). Вторым указан городской номер, по которому будет возвращена ошибка
 $data->text = 'Коммерческая недвижимость ' . $arrayfromjsonmail['tel']; // SMS Message to mobile
 /* Если текст разный. В этом случае $data->to и $data->text обрабатываться не будут и их можно убрать из кода */
