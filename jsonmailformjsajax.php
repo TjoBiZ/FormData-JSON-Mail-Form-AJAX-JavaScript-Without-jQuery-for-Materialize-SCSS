@@ -19,9 +19,9 @@ $arrayfromjsonmail = json_decode(stripslashes(file_get_contents("php://input")),
 //$v->message;
 //echo json_encode($v);
 
-$arrayfromjsonmail["ip"] = $_SERVER['REMOTE_ADDR'];
+$arrayfromjsonmail["ip"] = $_SERVER['HTTP_X_FORWARDED_FOR'];
 $arrayfromjsonmail['pageform'] = $_SERVER['HTTP_REFERER'];
-$project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Title later
+$project_name = $arrayfromjsonmail['name']. '. ('. $arrayfromjsonmail['formName'].').'; //Title Latter
 
 /** Start code for SMS mobile message **/
 
@@ -70,7 +70,7 @@ $c = true;
 
 	recurse_array_HTML_safe($arrayfromjsonmail);
 
-$arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['REMOTE_ADDR'] . "\" target=\"_blank\">Посмотреть где находится IP " . $_SERVER['REMOTE_ADDR'] . "</a>"; // This is link for check IP address on earth map.
+$arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['HTTP_X_FORWARDED_FOR'] . "\" target=\"_blank\">Посмотреть где находится IP " . $_SERVER['HTTP_X_FORWARDED_FOR'] . "</a>"; // This is link for check IP address on earth map.
 
 		$translateformnamecolumn = [
 			'formName' => 'Название формы',
@@ -120,7 +120,7 @@ $arrayfromjsonmail["ip"] = "<a href=\"https://www.iptrackeronline.com/index.php?
 }
 $message = "<table style='width: 100%;'>$message</table>";
 
-$ipfortelegram = "https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['REMOTE_ADDR']; //prepare message for telegram
+$ipfortelegram = "https://www.iptrackeronline.com/index.php?ip_address=" . $_SERVER['HTTP_X_FORWARDED_FOR']; //prepare message for telegram
 
 foreach ( $arrayfromjsonmail as $key => $value ) {
 	if ( $value != "" && $value !== "false") {
