@@ -42,7 +42,7 @@ $data->from = 'Forms-BOT'; // Если у вас уже одобрен букв�
 // $data->time = time() + 7*60*60; // This is timer for sent message to mobile - 7 hours
 // $data->translit = 1; // You can choose language letters. English letters have more symbols.
 $data->test = 1; // Позволяет выполнить запрос в тестовом режиме без реальной отправки сообщения
-// $data->partner_id = '258350'; // Можно указать ваш ID партнера, если вы интегрируете код в чужую систему
+// $data->partner_id = '258350'; // This ID partner if that is another system
 $request = $smsru->send($data); // Answer server after send message
 
 if ($request->status == "OK") { // Query is good
