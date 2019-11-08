@@ -31,12 +31,12 @@ $smsru = new SMSRU('B406B5AF-D7D7-6F91-D669-XXXXXXXXXXXXXX'); // Your key accoun
 
 $data = new stdClass();
 /* If one variation text for different phone numbers then -> */
-$data->to = '66800323660,66800343991'; // Phones for get SMS from forms (max 100 numbers). Вторым указан городской номер, по которому будет возвращена ошибка
+$data->to = '66800323660,66800343991'; // Phones for get SMS from forms (max 100 numbers).
 $data->text = 'Коммерческая недвижимость ' . $arrayfromjsonmail['tel']; // SMS Message to mobile
-/* Если текст разный. В этом случае $data->to и $data->text обрабатываться не будут и их можно убрать из кода */
-//$data->multi = array( // От 1 до 100 штук за раз
-//	"79533606633" => "Hello World", // 1 номер
-//	"74993221627" => "Hello World 2", // 2 номер (указан городской номер, будет возвращена ошибка)
+/* If text different then $data->to и $data->text not work */
+//$data->multi = array( // from 1 too 100 numbers in one
+//	"79533606633" => "Hello World", // 1 phone number
+//	"74993221627" => "Hello World 2", // 2 phone number (if use city number then errors - only mobile)
 //);
 $data->from = 'Forms-BOT'; // Если у вас уже одобрен буквенный отправитель, его можно указать здесь, в противном случае будет использоваться ваш отправитель по умолчанию
 // $data->time = time() + 7*60*60; // Отложить отправку на 7 часов
