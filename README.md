@@ -1,7 +1,7 @@
 # FormData-JSON-Mail-Form-AJAX-JavaScript-Without-jQuery-for-Materialize-SCSS
 Object FormData. HTML5 forms AJAX, JSON then sent too mail and mobile SMS, security channel in Telegram(phone app) for Materialize SCSS. Landing pages and sites PHP and Node.js
 
-Don't foget about links by Materialize framework in HTML
+Don't forget about links by Materialize framework in HTML
 
 First version Materialize Form HTML5.
 The object FormData without jQuery.
