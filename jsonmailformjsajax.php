@@ -38,10 +38,10 @@ $data->text = 'Коммерческая недвижимость ' . $arrayfromj
 //	"79533606633" => "Hello World", // 1 phone number
 //	"74993221627" => "Hello World 2", // 2 phone number (if use city number then errors - only mobile)
 //);
-$data->from = 'Forms-BOT'; // Если у вас уже одобрен буквенный отправитель, его можно указать здесь, в противном случае будет использоваться ваш отправитель по умолчанию
+$data->from = 'Forms-BOT'; // If do you have sentname in sms.ru then write it if hadn't get name then write to support sms.ru
 // $data->time = time() + 7*60*60; // This is timer for sent message to mobile - 7 hours
 // $data->translit = 1; // You can choose language letters. English letters have more symbols.
-$data->test = 1; // Позволяет выполнить запрос в тестовом режиме без реальной отправки сообщения
+$data->test = 1; // Test development mode
 // $data->partner_id = '258350'; // This ID partner if that is another system
 $request = $smsru->send($data); // Answer server after send message
 
