@@ -11,12 +11,16 @@ The object FormData without jQuery.
  Structure:
 HTML landing page(CMS sites) - FormData -> AJAX -> JSON (or FormData) -> PHP Script(Can use node.js for JSON Array) -> server sent message to e-mail SMTP SSL 486 (PHPMailer version 6.0.7) and SMS service -> response JSON (or FormData) to Landing Pages or sites.
 Call Back button for mobile number.
+e-mail SMTP source - https://github.com/PHPMailer/PHPMailer
 
-Moble SMS.
+Mobile SMS.
 Some instruction in jsonmailformjsajax.php
+SMS Docs - https://sms.ru/
 
 Security channel app.
  I should use Telegram with some instruction in jsonmailformjsajax.php
+ Telegram source - https://github.com/tg-bot-api/bot-api-base
+ 
 
 Change links to YOU path site in HTML document!!!
 
