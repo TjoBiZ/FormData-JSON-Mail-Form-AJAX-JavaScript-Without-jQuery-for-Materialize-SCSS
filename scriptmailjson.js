@@ -41,11 +41,11 @@ let langcookie = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)
         document.cookie = "lang=" + navigator.language.match(/\w+/)[0].toLowerCase() + "; domain=." + document.domain + "; path=/; expires=Thu, 01 Jan 2030 00:00:00 UTC;";
     }
 
-let materializesforms = ["FormJSON", "AnotherFormJSON", "MobileCallBack"]; // Перечисляем индификаторы форм, которые нужно обработать.
+let materializesforms = ["FormJSON", "AnotherFormJSON", "MobileCallBack"]; // ID formS for take data and sent into addEventListener.
 
 materializesforms.forEach(function(pagesforms, materializesforms) {
 
-    let contactForm = document.getElementById(pagesforms); //получаем объект обрабатываемой формы
+    let contactForm = document.getElementById(pagesforms); //Get object
 
     contactForm.addEventListener('submit', function(event) { //отлавливаем событие нажатие на кнопку у формы
         event.preventDefault(); //отменяем все действия выполняемые по умолчанию браузером после этого события
