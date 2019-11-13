@@ -45,7 +45,7 @@ let materializesforms = ["FormJSON", "AnotherFormJSON", "MobileCallBack"]; // ID
 
 materializesforms.forEach(function(pagesforms, materializesforms) {
 
-    let contactForm = document.getElementById(pagesforms); //Get object
+    let contactForm = document.getElementById(pagesforms); //Get object cycle checking form(with ID)
 
     contactForm.addEventListener('submit', function(event) { //отлавливаем событие нажатие на кнопку у формы
         event.preventDefault(); //отменяем все действия выполняемые по умолчанию браузером после этого события
